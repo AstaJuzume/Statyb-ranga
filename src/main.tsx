@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Link, Route, Routes } from "react-router";
 import { QueryClientProvider } from "@tanstack/react-query";
 import {
   Button,
@@ -81,7 +81,7 @@ function ErrorFallback() {
       <Text size="xl">
         {t("Nepavyko atidaryti puslapio", "Could not open page")}
       </Text>
-      <Button onClick={() => window.location.assign("/")}>
+      <Button onClick={() => window.location.assign(window.location.pathname + '#/')}>
         {t("Grįžti į pradžią", "Back to overview")}
       </Button>
     </Stack>
@@ -93,7 +93,7 @@ function NotFound() {
     <Stack align="center" p={60}>
       <Text size="30px">404</Text>
       <Text>{t("Puslapis nerastas", "Page not found")}</Text>
-      <Button component="a" href="/">
+      <Button component={Link} to="/">
         {t("Grįžti", "Go back")}
       </Button>
     </Stack>
@@ -106,7 +106,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <QueryClientProvider client={queryClient}>
         <AppProvider>
           <ErrorBoundary>
-            <BrowserRouter>
+            <HashRouter>
               <Routes>
                 <Route element={<AppShell />}>
                   <Route index element={<Dashboard />} />
@@ -126,7 +126,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
-            </BrowserRouter>
+            </HashRouter>
           </ErrorBoundary>
         </AppProvider>
       </QueryClientProvider>

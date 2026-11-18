@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import dayjs from "dayjs";
 import { useState } from "react";
 import {
@@ -94,7 +95,7 @@ export function WorkDetail({
           <Text size="xl" fw={500}>
             {item.name[lang]}
           </Text>
-          <Anchor href={`/projects/${item.projectId}`} size="sm">
+          <Anchor component={Link} to={`/projects/${item.projectId}`} size="sm">
             {project?.name[lang]} <ExternalLink size={12} />
           </Anchor>
           <Text size="sm" c="dimmed">
@@ -102,7 +103,7 @@ export function WorkDetail({
           </Text>
           {"processId" in item && item.processId && (
             <Anchor
-              href={`/planning?project=${item.projectId}&detail=${item.processId}`}
+              component={Link} to={`/planning?project=${item.projectId}&detail=${item.processId}`}
               size="sm"
             >
               {t("Susijęs procesas", "Linked process")}:{" "}
@@ -110,7 +111,7 @@ export function WorkDetail({
             </Anchor>
           )}
           {"supplierId" in item && item.supplierId && (
-            <Anchor href={`/suppliers/${item.supplierId}`} size="sm">
+            <Anchor component={Link} to={`/suppliers/${item.supplierId}`} size="sm">
               {t("Subrangovas", "Subcontractor")}:{" "}
               {db.suppliers.find((s) => s.id === item.supplierId)?.name}
             </Anchor>

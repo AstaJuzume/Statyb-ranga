@@ -35,3 +35,11 @@ This is a browser-local prototype with no backend. Email, Excel import and Dokob
 ## Source layout
 
 `src/features/` contains feature pages, feature APIs, types, planning components, estimate components and seed fixtures. `src/components/` contains reusable tables, forms, drawers and the app shell; `src/config/routes.ts` defines navigation. `src/lib/` holds shared domain types, translation context, persistence and workbook export.
+
+## GitHub Pages
+
+Live demo: https://astajuzume.github.io/Statyb-ranga/
+
+GitHub Pages serves the compiled `index.html`, `assets/`, and `favicon.svg` committed in the repository root. The editable HTML entry point is `web/index.html`; React and TypeScript source remains in `src/`. Do not replace the root index with the source entry point.
+
+`npm run build` checks TypeScript, builds the app, and refreshes the root static files. Commit source changes and refreshed generated files together. GitHub Pages should publish `main` / `(root)`. Hash-based routing and relative asset URLs keep navigation and page reloads working under `/Statyb-ranga/`.

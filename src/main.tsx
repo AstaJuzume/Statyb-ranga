@@ -35,9 +35,9 @@ import { Documents } from "./features/documents/pages/Documents";
 import { Handover } from "./features/handover/pages/Handover";
 import { Users } from "./features/users/pages/Users";
 const theme = createTheme({
-  fontFamily: '"Google Sans", "Roboto", "Segoe UI", Arial, sans-serif',
+  fontFamily: '"SR Roboto", "Segoe UI", Arial, sans-serif',
   headings: {
-    fontFamily: '"Google Sans", "Roboto", "Segoe UI", Arial, sans-serif',
+    fontFamily: '"SR Roboto", "Segoe UI", Arial, sans-serif',
     fontWeight: "400",
   },
   primaryColor: "blue",
